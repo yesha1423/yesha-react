@@ -1,6 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import About from './About'
+import Product from './Product'
+import Login from './Login'
+import PrivatePage from './PrivatePage'
+import AllRoutes from './AllRoutes'
+
 
 const DescriptionPage = () => {
 const [data,setdata]=useState({})

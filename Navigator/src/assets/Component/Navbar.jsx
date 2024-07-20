@@ -3,7 +3,7 @@ import{NavLink} from "react-router-dom"
 
 export const Navbar = () => {
   return (
-    <div style={{backgroundColor:"black",height:"50px"}}>
+    <div style={{backgroundColor:"black",height:"60px",lineHeight:"35px"}}>
         <div style={{display:"flex",justifyContent:"space-around",padding:"10px"}}>
           <NavLink style={({isActive})=>{
             return isActive ? {color:"red"} : {color:"white"} 
@@ -14,8 +14,8 @@ export const Navbar = () => {
           <NavLink style={({isActive})=>{
             return isActive ? {color:"red"} : {color:"white"} 
           }}
-          to={"/addpage"}>
-          ADDPAGE
+          to={"/about"}>
+          ABOUT 
           </NavLink>
           <NavLink style={({isActive})=>{
             return isActive ? {color:"red"} : {color:"white"} 

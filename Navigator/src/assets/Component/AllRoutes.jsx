@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Addpage from './Addpage'
 import Product from './Product'
 import Home from './Home'
 import Login from './Login'
@@ -14,8 +13,7 @@ const AllRoutes = () => {
         <Routes>
         
             <Route path={"/"} element={<Home />}></Route>
-            <Route path={"/addpage"} element={<Addpage />} ></Route>
-            <Route path={"/about"}>element={<About />}</Route>
+            <Route path={"/about"} element={<About />} ></Route>
             <Route path={"/login"} element={<Login />} ></Route>
             <Route path={"/singlepage/:id"} element={<DescriptionPage />}/>
             <Route path={"/product"} element={

@@ -1,18 +1,24 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const Product = () => {  
 const [data,setdata]=useState([])
+const [page,setpage]=useState(1)
 
 function getdatafun(){
-  axios.get("http://localhost:3000/Product")
+  axios.get("http://localhost:3000/Product",{
+    params:{
+      _page:page,
+      _limit:3
+    }
+  })
   .then((res)=>setdata(res.data))
   .catch((err)=>console.log(err))
 } 
 useEffect(()=>{
   getdatafun()
-},[])
+},[page])
 
   return (
     <div>    
@@ -29,6 +35,9 @@ useEffect(()=>{
         </div>
       ))}
       </div>
+      <button disabled={page==1} onClick={()=>setpage(page-1)}>-</button>
+      <span>{page}</span>
+      <button disabled={page==7} onClick={()=>setpage(page+1)}>+</button>
     </div>
   )
 }
