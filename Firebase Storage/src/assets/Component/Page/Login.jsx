@@ -1,8 +1,6 @@
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import React, { useState } from "react";
-// import { auth, provider } from "../Services/firebase";
-import GoogleButton from 'react-google-button';
-import { auth, provider } from "../Service/Firebase";
+import { auth } from "../Service/Firebase";
 
 const Login = () => {
   const [email, setemail] = useState("");
@@ -22,16 +20,7 @@ const Login = () => {
       });
   };
 
-  const handlegoogleclick = () => {
-    signInWithPopup(auth, provider)
-      .then((res) => {
-        alert("You are logged in");
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+ 
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -57,9 +46,7 @@ const Login = () => {
             {showPassword ? "Hide" : "Show"}
           </button>
         </div>
-        <div className="google-btn">
-          <GoogleButton style={{ width: "340px" }} onClick={(e) => handlegoogleclick(e)} />
-        </div><br />
+       
         <input type="submit" className="submit-btn" />
         <p className="signup-link">
           Don't have an account? <a href="/signup">Sign up here</a>
