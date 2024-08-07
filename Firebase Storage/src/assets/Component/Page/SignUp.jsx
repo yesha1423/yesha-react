@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../Service/Firebase';
-// import { auth } from '../Services/firebase';
+
 
 const SignUp = () => {
   const [email, setemail] = useState("");
@@ -33,13 +33,13 @@ const SignUp = () => {
         <input
           type="email"
           onChange={(e) => setemail(e.target.value)}
-          placeholder="Enter Your Email"
+          placeholder="Enter Your Email..."
         /><br /><br />
         <div className="password-container">
           <input
             type={showPassword ? "text" : "password"}
             onChange={(e) => setpassword(e.target.value)}
-            placeholder="Enter Your Password"
+            placeholder="Enter Your Password..."
           />
           <button type="button" className="toggle-password-btn" onClick={togglePasswordVisibility}>
             {showPassword ? "Hide" : "Show"}
