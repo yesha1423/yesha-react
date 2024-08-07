@@ -1,15 +1,16 @@
 import React from 'react'
+import { auth } from './Service/Firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Navigate } from 'react-router-dom';
 
 const PrivatePage = ({children}) => {
-  const isAuth = localStorage.getItem("token")
-  
-  if(!isAuth){
-    alert("you're not got token")
-    window.location.href="/login"
-  }
-  
-    return children
-  
+    const [user] = useAuthState(auth);
+
+    if(!user){
+      alert("You can't enter in this page. Please Login Your Account")
+      return <Navigate to={"/login"} />
+    }
+  return children
 }
 
-export default PrivatePage 
+export default PrivatePage
